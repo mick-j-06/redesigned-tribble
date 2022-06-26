@@ -69,7 +69,7 @@ class MyInputData extends React.Component {
                     </div>
                 </form>
                 <div>
-                    <button name={"name"} onClick={this.add}>SAVE</button>
+                    <button className={"btn btn-primary"} onClick={this.add}>SAVE</button>
                     <div className={"alert-success m-1"}>
                         <h1 className={"text-center"} >{this.state.statusText}</h1>
                     </div>

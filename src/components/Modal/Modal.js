@@ -7,7 +7,7 @@ export default function Modal(props){
             display : props.visible ? "block" : "none"
         }} >
             <div className={"Modal-content"}>
-                <button onClick={props.cache} >X</button>
+                <button onClick={props.cache} className={"btn btn-close"} ></button>
                 <MyInputData/>
             </div>
         </div>

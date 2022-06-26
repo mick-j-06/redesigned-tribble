@@ -22,3 +22,9 @@
     height: auto;
     border-radius: 5px;
 }
+
+.btn-close {
+    position: relative;
+    margin-left: 95%;
+    margin-top: 5px;
+}
