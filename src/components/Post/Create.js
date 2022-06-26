@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-class MyInputData extends React.Component {
+class Create extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -79,4 +79,4 @@ class MyInputData extends React.Component {
     }
 }
 
-export default MyInputData
+export default Create

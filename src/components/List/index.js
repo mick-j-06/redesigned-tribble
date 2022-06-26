@@ -53,7 +53,7 @@ export function UserList(props) {
                     </tfoot>
                     <tbody>
                     {(items || []).map((item) => (
-                        <tr key={`${item.id}-${item.name}`}>
+                        <tr key={`${item.id}-${item.name}`} id={item.id}>
                             <td>{item.name}</td>
                             <td>{item.username}</td>
                             <td>{item.email}</td>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "./button.css"
 import Modal from "./Modal";
+import Create from "./Create";
 class Button extends Component {
     constructor(props) {
         super(props);
@@ -23,8 +24,12 @@ class Button extends Component {
     render() {
         return (
             <div>
-                <button className={"Button"} onClick={this.show} >ADD</button>
-                <Modal visible={this.state.visible} cache={this.cache} />
+                <button className={"Button"} onClick={this.show} >
+                    {this.props.children}
+                </button>
+                <Modal visible={this.state.visible} cache={this.cache}>
+                    <Create/>
+                </Modal>
             </div>
         );
     }

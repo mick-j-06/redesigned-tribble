@@ -5,7 +5,7 @@ import {UserList} from "./components/List";
 import {Footer} from "./components/Footer";
 import {Card} from "./components/Card";
 import {useEffect, useState} from "react";
-import Button from "./components/Modal/Button";
+import Button from "./components/Post/Button";
 import axios from "axios";
 function App() {
     let [users, setUsers] = useState([]);
@@ -38,7 +38,7 @@ function App() {
                     <main>
                         <div className="container-fluid px-4">
                             <h1 className="mt-4">Tables</h1>
-                            <Button/>
+                            <Button>ADD</Button>
                             <Breadcrumb/>
                             <Card>
                                 DataTables is a third party plugin that is used to generate the
@@ -50,7 +50,7 @@ function App() {
                                 .
                             </Card>
                             <Card title="DataTable Example">
-                                <UserList items={users}/>
+                                <UserList items={users} />
                             </Card>
                         </div>
                     </main>
