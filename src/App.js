@@ -13,7 +13,7 @@ function App() {
 
     const [sidebarClass, setSidebarClass] = useState("sb-nav-fixed");
 
-    useEffect(async () => {
+    useEffect( () => {
         axios.get('https://jsonplaceholder.typicode.com/users').then(result => {
             const {data} = result;
             setUsers(data);
