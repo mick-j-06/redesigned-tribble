@@ -1,0 +1,17 @@
+.Button {
+    color: #ffffff;
+    background: blue;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 5%;
+}
+
+.Button:hover,
+.Button:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    background: #02008d;
+}
