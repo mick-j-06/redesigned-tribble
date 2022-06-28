@@ -1,7 +1,31 @@
 import "./style.css";
+import { useState } from "react";
+import Modal from "../Post/Modal";
+import Edit from "../Put/Edit";
+import axios from "axios";
 
 export function UserList(props) {
     const {items} = props;
+    let [user, setUser] = useState([]);
+    let [visible, setVisible] = useState(false);
+
+    function show() {
+        setVisible(true);
+    }
+
+    function cache() {
+        setVisible(false);
+    }
+
+    function getUser(idUser) {
+        const url = "https://jsonplaceholder.typicode.com/users/" + idUser;
+        const promise = axios.get(url).then(result => {
+            const {data} = result;
+            setUser(data);
+        })
+        show();
+    }
+    let {id,name,username,email,phone,website} = user ;
     return (
         <div className="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
             <div className="dataTable-top">
@@ -41,19 +65,21 @@ export function UserList(props) {
                     </tr>
                     </thead>
                     <tfoot>
-                        <tr>
-                            <th>Name</th>
-                            <th>Username</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Website</th>
-                            <th>Company</th>
-                        </tr>
+                    <tr>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Website</th>
+                        <th>Company</th>
+                    </tr>
                     </tfoot>
                     <tbody>
                     {(items || []).map((item) => (
-                        <tr key={`${item.id}-${item.name}`} id={item.id}>
+                        <tr key={`${item.id}-${item.name}`} onClick={() => {
+                            getUser(item.id);
+                        }}>
                             <td>{item.name}</td>
                             <td>{item.username}</td>
                             <td>{item.email}</td>
@@ -65,6 +91,9 @@ export function UserList(props) {
                     ))}
                     </tbody>
                 </table>
+                <Modal visible={visible} cache={cache} >
+                    <Edit id={id} name={name} username={username} email={email} phone={phone} website={website} />
+                </Modal>
             </div>
             <div className="dataTable-bottom">
                 <div className="dataTable-info">Showing 1 to 10 of 57 entries</div>
