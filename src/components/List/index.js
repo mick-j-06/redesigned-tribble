@@ -1,5 +1,5 @@
 import "./style.css";
-import { useState } from "react";
+import {useState} from "react";
 import Modal from "../Post/Modal";
 import Edit from "../Put/Edit";
 import axios from "axios";
@@ -25,7 +25,8 @@ export function UserList(props) {
         })
         show();
     }
-    let {id,name,username,email,phone,website} = user ;
+
+    let {id, name, username, email, phone, website} = user;
     return (
         <div className="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
             <div className="dataTable-top">
@@ -91,8 +92,8 @@ export function UserList(props) {
                     ))}
                     </tbody>
                 </table>
-                <Modal visible={visible} cache={cache} >
-                    <Edit id={id} name={name} username={username} email={email} phone={phone} website={website} />
+                <Modal visible={visible} cache={cache}>
+                    <Edit id={id} name={name} username={username} email={email} phone={phone} website={website}/>
                 </Modal>
             </div>
             <div className="dataTable-bottom">
