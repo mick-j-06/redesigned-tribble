@@ -24,7 +24,6 @@ class Create extends React.Component {
             [name]: event.target.value,
         });
     }
-
     postRequest() {
         const data = {
             name : this.state.name,
