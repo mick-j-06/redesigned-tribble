@@ -1,7 +1,7 @@
 import "./style.css";
 import {useState} from "react";
-import Modal from "../Post/Modal";
-import Edit from "../Put/Edit";
+import Modal from "../Modal/Modal";
+import Edit from "../Modal/Edit";
 import axios from "axios";
 
 export function UserList(props) {
@@ -13,20 +13,21 @@ export function UserList(props) {
         setVisible(true);
     }
 
-    function cache() {
+    function hide() {
         setVisible(false);
     }
 
-    function getUser(idUser) {
+    async function getUser(idUser) {
         const url = "https://jsonplaceholder.typicode.com/users/" + idUser;
-        const promise = axios.get(url).then(result => {
+        const promise =  axios.get(url) ;
+        promise.then(result => {
             const {data} = result;
             setUser(data);
         })
         show();
     }
 
-    let {id, name, username, email, phone, website} = user;
+    let {id, name, username, email,address, phone, website,company} = user;
     return (
         <div className="dataTable-wrapper dataTable-loading no-footer sortable searchable fixed-columns">
             <div className="dataTable-top">
@@ -92,8 +93,8 @@ export function UserList(props) {
                     ))}
                     </tbody>
                 </table>
-                <Modal visible={visible} cache={cache}>
-                    <Edit id={id} name={name} username={username} email={email} phone={phone} website={website}/>
+                <Modal visible={visible} hide={hide}>
+                    <Edit id={id} name={name} username={username} email={email} address={address} phone={phone} website={website} company={company} />
                 </Modal>
             </div>
             <div className="dataTable-bottom">

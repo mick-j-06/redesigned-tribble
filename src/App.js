@@ -5,7 +5,7 @@ import {UserList} from "./components/List";
 import {Footer} from "./components/Footer";
 import {Card} from "./components/Card";
 import {useEffect, useState} from "react";
-import Button from "./components/Post/Button";
+import Button from "./components/Button/Button";
 import axios from "axios";
 function App() {
     let [users, setUsers] = useState([]);
