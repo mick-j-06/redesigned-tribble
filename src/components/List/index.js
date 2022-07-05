@@ -19,12 +19,11 @@ export function UserList(props) {
 
     async function getUser(idUser) {
         const url = "https://jsonplaceholder.typicode.com/users/" + idUser;
-        const promise =  axios.get(url) ;
-        promise.then(result => {
+        const promise = await axios.get(url).then( async function (result){
             const {data} = result;
-            setUser(data);
+            await setUser(data);
         })
-        show();
+        await show();
     }
 
     let {id, name, username, email,address, phone, website,company} = user;
