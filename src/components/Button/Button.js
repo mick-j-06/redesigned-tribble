@@ -1,42 +1,25 @@
-import React, {Component} from 'react';
 import "./Button.css"
+import {useState} from "react";
 import Modal from "../Modal/Modal";
 import Create from "../Modal/Create";
 
-class Button extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: false
-        }
-        this.show = this.show.bind(this);
-        this.hide = this.hide.bind(this);
-    }
+export default function Button(props){
+    let [visible,setVisible] = useState(false);
 
-    show() {
-        this.setState({
-            visible: true
-        });
+    function show(){
+        setVisible(true) ;
     }
-
-    hide() {
-        this.setState({
-            visible: false
-        });
+    function hide(){
+        setVisible(false) ;
     }
-
-    render() {
-        return (
-            <div>
-                <button className={"Button"} onClick={this.show}>
-                    {this.props.children}
-                </button>
-                <Modal visible={this.state.visible} hide={this.hide}>
-                    <Create/>
-                </Modal>
-            </div>
-        );
-    }
+    return (
+        <div>
+            <button className={"Button"} onClick={show}>
+                {props.children}
+            </button>
+            <Modal visible={visible} hide={hide}>
+                <Create/>
+            </Modal>
+        </div>
+    );
 }
-
-export default Button;
